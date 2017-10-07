@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "CaronaJogo",
+  "short_name": "CaronaJogo",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
