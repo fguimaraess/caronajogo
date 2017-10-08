@@ -12,8 +12,41 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+ <ion-list *ngFor="let partida of partidasDaRodada" no-lines>
+    <ion-card>
+      <ion-card-header>
+        {{partida.data}}
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5.5>
+              <ion-row>
+                <ion-col col-12><img center style="height: 90%!important; width: 90%!important;" src="{{partida.mandante.escudos['60x60']}}"/></ion-col>
+                <ion-col col-12 text-center><span>{{partida.mandante.abreviacao}}</span></ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-1>
+              X
+            </ion-col>
+            <ion-col col-5.5>
+              <ion-row>
+                <ion-col col-12 text-center><img style="height: 90%!important; width: 90%!important;" src="{{partida.visitante.escudos['60x60']}}"/></ion-col>
+                <ion-col col-12 text-center><span >{{partida.visitante.abreviacao}}</span></ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+      
+      
+  </ion-list>
 </ion-content>
+
+
+<!--<img src="{{partida.mandante.escudos['45x45']}}"/>
+        <span>{{partida.mandante.abreviacao}}</span>
+        <span>x</span>
+        <span>{{partida.visitante.abreviacao}}</span>
+        <img src="{{partida.visitante.escudos['45x45']}}"/>  -->
