@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Partida
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item-divider text-center color="light">
+        <ion-icon ios="ios-football" md="md-football"></ion-icon><br/>
+        {{partida.local}}<br/> {{partida.data}}</ion-item-divider>
+    <ion-item text-center><img src='{{partida.mandante.escudos["45x45"]}}'> X <img src='{{partida.visitante.escudos["45x45"]}}'></ion-item>
+    <br/>
+    <button ion-button block style="background-color: darkgreen;"><ion-icon ios="ios-person-add" md="md-person-add"> </ion-icon>Quero carona</button>
+    <br/>
+    <button ion-button block style="background-color: darkred;"><ion-icon ios="ios-car" md="md-car"></ion-icon> Vou de carro </button>
+</ion-content>

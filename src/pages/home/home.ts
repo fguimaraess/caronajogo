@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Http } from '@angular/http';
- 
+
+import { EscolhaPage } from '../escolha/escolha';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
 export class HomePage {
-partidasDaRodada: []
-clubes: Object
+public partidasDaRodada;
 
 constructor(
   public navCtrl: NavController,
-  public http: Http,
+  private loadingCtrl: LoadingController,
+  private alertCtrl: AlertController,
+  private http: Http,
   private auth: AngularFireAuth) { }
 
   httpGet(url) {
@@ -70,6 +73,11 @@ constructor(
   }
 
   ngOnInit() {
+    let loader = this.loadingCtrl.create({
+      content: 'Carregando...'
+    })
+    loader.present() //Loader aparece até carregar a lista
+
     this.getRodada().then(this.getRodadaAtual).then((idRodada) => {
       this.getPartidas(idRodada).then((partidas) => {
         var tmpPartidas = []
@@ -85,9 +93,21 @@ constructor(
         }
         console.log(tmpPartidas)
         this.partidasDaRodada = tmpPartidas
+        loader.dismiss() //Mata o loader
       })
+    }).catch(err => {
+      loader.dismiss()
+      this.alertCtrl.create({
+        title: 'Falha na conexão',
+        buttons: [{text: 'OK'}],
+        subTitle: 'Não foi possível obter as partidas. Tente novamente.'
+      }).present()
     })
-  }
+   }
+
+   selectPartida(partida) {
+     this.navCtrl.push(EscolhaPage, {partidaEscolhida: partida})
+   }
 
   signOut() {
     this.auth.auth.signOut();

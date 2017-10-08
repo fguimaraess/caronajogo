@@ -24,6 +24,6 @@
       <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
     </ion-item>
   </ion-list>
-  <button full ion-button (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
+  <button style="background-color: darkgreen;" full ion-button (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
   <a href="#" (click)="signup()">Criar uma conta</a>
 </ion-content>

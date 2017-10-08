@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Bem vindo ao CaronaJogo
+      CaronaJogo
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="signOut()">
@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
- <ion-list *ngFor="let partida of partidasDaRodada" no-lines>
+ <ion-list *ngFor="let partida of partidasDaRodada" (click)="selectPartida(partida)">
     <ion-card>
       <ion-card-header>
         {{partida.data}}
@@ -43,10 +43,3 @@
       
   </ion-list>
 </ion-content>
-
-
-<!--<img src="{{partida.mandante.escudos['45x45']}}"/>
-        <span>{{partida.mandante.abreviacao}}</span>
-        <span>x</span>
-        <span>{{partida.visitante.abreviacao}}</span>
-        <img src="{{partida.visitante.escudos['45x45']}}"/>  -->
