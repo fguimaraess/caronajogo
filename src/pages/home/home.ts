@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 import { EscolhaPage } from '../escolha/escolha';
 
@@ -20,9 +20,18 @@ constructor(
   private http: Http,
   private auth: AngularFireAuth) { }
 
+
+
   httpGet(url) {
+    let myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json')
+    myHeaders.append('Access-Control-Allow-Origin', '*');
+    myHeaders.append('Origin', null);
+    var options = new RequestOptions({ headers: myHeaders });
+
     return new Promise((resolve, reject) => {
-      this.http.get(url)
+    
+      this.http.get(url, options)
         .subscribe((result: any) => {
           resolve(result.json());
         },
@@ -38,7 +47,7 @@ constructor(
   }
 
   getPartidas(rodada){
-    let url = 'https://api.cartolafc.globo.com/partidas/' + rodada
+    let url = 'https://cors-anywhere.herokuapp.com/https://api.cartolafc.globo.com/partidas/' + rodada
     return this.httpGet(url)
   }
 
@@ -68,7 +77,7 @@ constructor(
   }
 
   getRodada(){
-    let url = 'https://api.cartolafc.globo.com/rodadas'
+    let url = 'https://cors-anywhere.herokuapp.com/https://api.cartolafc.globo.com/rodadas'
     return this.httpGet(url)
   }
 

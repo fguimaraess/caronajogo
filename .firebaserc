@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "caronajogo",
-    "caronajogo": "caronajogo"
+    "caronajogo": "caronajogo",
+    "a": "caronajogo"
   }
 }
