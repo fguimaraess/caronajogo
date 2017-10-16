@@ -63,13 +63,13 @@ constructor(
 
       if(dataAtual <= dataFimRodada && dataAtual >= dataInicioRodada){
         return new Promise((resolve, reject) => {
-          resolve(dados[i].rodada_id)
+          resolve(dados[i].rodada_id + 1)
         })
       } 
         
       else if(dataAtual < dataInicioRodada){
         return new Promise((resolve, reject) => {
-          resolve(dados[i].rodada_id)
+          resolve(dados[i].rodada_id - 1)
         })
       }
     }
