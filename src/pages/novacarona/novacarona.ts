@@ -1,32 +1,39 @@
 import { Component } from '@angular/core';
 import { NavParams, NavController, AlertController } from 'ionic-angular';
-import { NovaCaronaPage } from '../novacarona/novacarona';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
-    templateUrl: 'escolha.html'
+    selector: 'page-novacarona',
+    templateUrl: 'novacarona.html'
 })
 
-export class EscolhaPage {
+export class NovaCaronaPage {
     
 public partida;
+public usuarioLogado;
 
 constructor(
     public navParams: NavParams,
     public navCtrl: NavController,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    private auth: AngularFireAuth) {
+        this.verificaUsuario()
         this.partida = this.navParams.get('partidaEscolhida')
         console.log(this.partida)
     }
 
-    novaCarona(partida) {
-     this.navCtrl.push(NovaCaronaPage, {partidaEscolhida: partida})
-   }
+    verificaUsuario(){
+      this.auth.auth.onAuthStateChanged(user => {
+        this.usuarioLogado = user.email
+      })
+    }
 
-   queroCarona(){
+    confirmaNovaCarona(){
         this.alertCtrl.create({
         title: 'Troxa',
         buttons: [{text: 'OK'}],
         subTitle: 'Calma aí que a gente tá desenvolvendo.'
       }).present()
     }
+
 }

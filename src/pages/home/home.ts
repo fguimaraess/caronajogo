@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Http, RequestOptions, Headers } from '@angular/http';
-
+import { LoginPage } from '../login/login';
 import { EscolhaPage } from '../escolha/escolha';
 
 @Component({
@@ -13,21 +13,19 @@ import { EscolhaPage } from '../escolha/escolha';
 export class HomePage {
 public partidasDaRodada;
 
-
 constructor(
   public navCtrl: NavController,
+  public navParams: NavParams,
   private loadingCtrl: LoadingController,
   private alertCtrl: AlertController,
   private http: Http,
   private auth: AngularFireAuth) { }
 
-
-
   httpGet(url) {
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json')
     myHeaders.append('Access-Control-Allow-Origin', '*');
-    myHeaders.append('Origin', null);
+    myHeaders.append('Origin', '*');
     var options = new RequestOptions({ headers: myHeaders });
 
     return new Promise((resolve, reject) => {
@@ -51,6 +49,7 @@ constructor(
     let url = 'https://cors-anywhere.herokuapp.com/https://api.cartolafc.globo.com/partidas/' + rodada
     return this.httpGet(url)
   }
+
 
   getRodadaAtual(dados){
     let dataAtual = new Date()

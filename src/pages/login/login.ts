@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
+import { HomePage } from '../home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginPage {
   login() {
     this.afAuth.auth.signInWithEmailAndPassword(this.loginData.email, this.loginData.password)
       .then(auth => {
-        //Logado
+        this.navCtrl.push(HomePage, {emailUsuario: this.loginData.email});
       })
       .catch(err => {
         let toast = this.toastCtrl.create({

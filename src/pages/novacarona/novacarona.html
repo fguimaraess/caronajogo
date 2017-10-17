@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Partida
+      Nova Carona
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -12,7 +12,10 @@
         {{partida.local}}<br/> {{partida.data}}</ion-item-divider>
     <ion-item text-center><img src='{{partida.mandante.escudos["45x45"]}}'> X <img src='{{partida.visitante.escudos["45x45"]}}'></ion-item>
     <br/>
-    <button (click)="queroCarona(partida)" ion-button block style="background-color: darkgreen;"><ion-icon ios="ios-person-add" md="md-person-add"> </ion-icon>Quero carona</button>
-    <br/>
-    <button (click)="novaCarona(partida)" ion-button block style="background-color: darkred;"><ion-icon ios="ios-car" md="md-car"></ion-icon> Vou de carro </button>
+        E-mail: <ion-item>{{usuarioLogado}}</ion-item>
+        Hora da saída <ion-item><ion-input></ion-input></ion-item>
+        Local da saída <ion-item><ion-input></ion-input></ion-item>
+        Placa do carro <ion-item><ion-input></ion-input></ion-item>
+        Número de vagas: <ion-item><ion-input></ion-input></ion-item>
+    <button (click)="confirmaNovaCarona()" ion-button block style="background-color: darkgreen;">Confirmar</button>
 </ion-content>
