@@ -13,6 +13,7 @@ import { EscolhaPage } from '../escolha/escolha';
 export class HomePage {
 public partidasDaRodada;
 
+
 constructor(
   public navCtrl: NavController,
   private loadingCtrl: LoadingController,
@@ -53,7 +54,8 @@ constructor(
 
   getRodadaAtual(dados){
     let dataAtual = new Date()
-    
+    let rodadaAnterior;
+
     for(var i = 0; i < dados.length; i++){
       var dataInicioRodadaRaw = dados[i].inicio.split(' ')[0].split('-')
       var dataInicioRodada = new Date(dataInicioRodadaRaw[0], (dataInicioRodadaRaw[1] - 1), dataInicioRodadaRaw[2]) 
@@ -63,14 +65,15 @@ constructor(
 
       if(dataAtual <= dataFimRodada && dataAtual >= dataInicioRodada){
         return new Promise((resolve, reject) => {
-          resolve(dados[i].rodada_id + 1)
+          resolve(dados[i].rodada_id)
         })
       } 
         
       else if(dataAtual < dataInicioRodada){
         return new Promise((resolve, reject) => {
-          resolve(dados[i].rodada_id - 1)
-        })
+          resolve(dados[i].rodada_id)
+          rodadaAnterior = resolve(dados[i].rodada_id-1)
+        }).catch(rodadaAnterior)
       }
     }
     
