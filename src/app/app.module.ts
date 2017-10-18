@@ -14,6 +14,8 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { EscolhaPage } from '../pages/escolha/escolha';
 import { NovaCaronaPage } from '../pages/novacarona/novacarona';
+import { CaronasCriadasPage } from '../pages/caronascriadas/caronascriadas';
+import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas';
 
 // Initialize Firebase
   var config = {
@@ -32,7 +34,9 @@ import { NovaCaronaPage } from '../pages/novacarona/novacarona';
     LoginPage,
     SignupPage,
     EscolhaPage,
-    NovaCaronaPage
+    NovaCaronaPage,
+    CaronasCriadasPage,
+    CaronasRecebidasPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { NovaCaronaPage } from '../pages/novacarona/novacarona';
     LoginPage,
     SignupPage,
     EscolhaPage,
-    NovaCaronaPage
+    NovaCaronaPage,
+    CaronasCriadasPage,
+    CaronasRecebidasPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

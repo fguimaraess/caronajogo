@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Nova Carona
     </ion-title>
@@ -18,19 +21,19 @@
          {{usuarioLogado}}
     </ion-item>
     <ion-item>
-        <ion-label floating>Hora da saída</ion-label>
-        <ion-input type="text" [(ngModel)]="dadosCarona.hora"></ion-input>
+        <ion-label stacked>Hora da saída</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="dadosCarona.hora"></ion-datetime>
     </ion-item>
     <ion-item>
-        <ion-label floating>Local da saída</ion-label>
+        <ion-label stacked>Local da saída</ion-label>
         <ion-input type="text" [(ngModel)]="dadosCarona.local"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Placa do carro</ion-label>
+        <ion-label stacked>Placa do carro</ion-label>
         <ion-input type="text" [(ngModel)]="dadosCarona.placa"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label floating>Número de vagas</ion-label>
+        <ion-label stacked>Número de vagas</ion-label>
         <ion-input type="number" [(ngModel)]="dadosCarona.vagas"></ion-input>
     </ion-item>
     <button (click)="confirmaNovaCarona()" ion-button block style="background-color: darkgreen;">Confirmar</button>

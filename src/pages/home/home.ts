@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import { LoginPage } from '../login/login';
 import { EscolhaPage } from '../escolha/escolha';
 
 @Component({

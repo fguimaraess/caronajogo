@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
-
 import { AngularFireAuth } from 'angularfire2/auth';
+
+import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { CaronasCriadasPage } from '../pages/caronascriadas/caronascriadas';
+import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,6 +16,14 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = HomePage;
 
+  public pages = [
+    { title: 'Home', component: HomePage  },
+    { title: 'Caronas recebidas', component: CaronasRecebidasPage },
+    { title: 'Caronas criadas', component: CaronasCriadasPage }
+  ]
+
+  @ViewChild(Nav) public nav: Nav
+  
   constructor(platform: Platform,
     private afAuth:AngularFireAuth,
     statusBar: StatusBar,
@@ -29,6 +39,11 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  openPage(page) {
+    if(page.component == HomePage) this.nav.setRoot(page.component);
+    else this.nav.push(page.component);
   }
 }
 

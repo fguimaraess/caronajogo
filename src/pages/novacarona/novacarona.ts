@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, NavController, AlertController } from 'ionic-angular';
+import { NavParams, NavController, AlertController, Alert } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -15,6 +15,8 @@ export class NovaCaronaPage {
 public listCaronas;
 public partida;
 public usuarioLogado;
+private alerta: Alert
+
 public dadosCarona = {
     idPartida: '',
     email: '',
@@ -34,6 +36,12 @@ constructor(
         this.partida = this.navParams.get('partidaEscolhida')
         this.listCaronas = af.list('/caronas')
         console.log(this.partida)
+
+        this.alerta = this.alertCtrl.create({
+            buttons: [{text: 'OK', handler: () => {
+            this.navCtrl.setRoot(HomePage)
+          }}]
+        })
     }
 
     verificaUsuario(){
@@ -47,19 +55,13 @@ constructor(
         this.dadosCarona.email = this.usuarioLogado;
         this.listCaronas.push(this.dadosCarona).then(dadosCarona => {
             console.log(this.dadosCarona)
-            this.alertCtrl.create({
-                title: 'Carona cadastrada',
-                buttons: [{text: 'OK'}],
-                subTitle: 'Você criou carona para o jogo ' + this.partida.mandante.abreviacao + 'x' + this.partida.visitante.abreviacao
-            }).present().then(() =>{
-                this.navCtrl.push(HomePage)
-            })
-        }).catch(() => {
-                this.alertCtrl.create({
-                title: 'Erro',
-                buttons: [{text: 'OK'}],
-                subTitle: 'Não foi possível cadastrar a carona.'
-            }).present()
+            this.alerta.setTitle('Carona cadastrada');
+            this.alerta.setSubTitle('Você criou carona para o jogo ' + this.partida.mandante.abreviacao + 'x' + this.partida.visitante.abreviacao);
+            this.alerta.present();    
+            }).catch(() => {
+                this.alerta.setTitle('Erro')
+                this.alerta.setSubTitle('Não foi possível cadastrar a carona.')
+                this.alerta.present()
         })
     }
 }
