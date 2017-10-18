@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpModule } from '@angular/http';
 
 import { HomePage } from '../pages/home/home';
@@ -52,7 +53,8 @@ import { NovaCaronaPage } from '../pages/novacarona/novacarona';
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StatusBar,
-    SplashScreen
+    SplashScreen,
+    AngularFireDatabase
     ]
 })
 export class AppModule {}

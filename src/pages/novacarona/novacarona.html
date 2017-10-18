@@ -12,10 +12,26 @@
         {{partida.local}}<br/> {{partida.data}}</ion-item-divider>
     <ion-item text-center><img src='{{partida.mandante.escudos["45x45"]}}'> X <img src='{{partida.visitante.escudos["45x45"]}}'></ion-item>
     <br/>
-        E-mail: <ion-item>{{usuarioLogado}}</ion-item>
-        Hora da saída <ion-item><ion-input></ion-input></ion-item>
-        Local da saída <ion-item><ion-input></ion-input></ion-item>
-        Placa do carro <ion-item><ion-input></ion-input></ion-item>
-        Número de vagas: <ion-item><ion-input></ion-input></ion-item>
+    
+    E-mail
+    <ion-item>
+         {{usuarioLogado}}
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Hora da saída</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosCarona.hora"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Local da saída</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosCarona.local"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Placa do carro</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosCarona.placa"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Número de vagas</ion-label>
+        <ion-input type="number" [(ngModel)]="dadosCarona.vagas"></ion-input>
+    </ion-item>
     <button (click)="confirmaNovaCarona()" ion-button block style="background-color: darkgreen;">Confirmar</button>
 </ion-content>

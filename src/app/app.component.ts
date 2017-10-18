@@ -14,7 +14,10 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = HomePage;
 
-  constructor(platform: Platform, private afAuth:AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform,
+    private afAuth:AngularFireAuth,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen) {
     this.afAuth.authState.subscribe(auth => {
       if(!auth) this.rootPage = LoginPage;
       else this.rootPage = HomePage;
