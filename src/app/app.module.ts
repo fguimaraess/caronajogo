@@ -14,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { EscolhaPage } from '../pages/escolha/escolha';
 import { NovaCaronaPage } from '../pages/novacarona/novacarona';
+import { QueroCaronaPage } from '../pages/querocarona/querocarona';
 import { CaronasCriadasPage } from '../pages/caronascriadas/caronascriadas';
 import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas';
 
@@ -35,6 +36,7 @@ import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas
     SignupPage,
     EscolhaPage,
     NovaCaronaPage,
+    QueroCaronaPage,
     CaronasCriadasPage,
     CaronasRecebidasPage
   ],
@@ -53,6 +55,7 @@ import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas
     SignupPage,
     EscolhaPage,
     NovaCaronaPage,
+    QueroCaronaPage,
     CaronasCriadasPage,
     CaronasRecebidasPage
   ],

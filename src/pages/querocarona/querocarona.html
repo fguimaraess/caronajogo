@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Buscar Carona
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item-divider text-center color="light">
+        <ion-icon ios="ios-football" md="md-football"></ion-icon><br/>
+        {{partida.local}}<br/> {{partida.data}}</ion-item-divider>
+    <ion-item text-center><img src='{{partida.mandante.escudos["45x45"]}}'> X <img src='{{partida.visitante.escudos["45x45"]}}'></ion-item>
+    <br/>
+
+</ion-content>

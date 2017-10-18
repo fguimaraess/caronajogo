@@ -1,0 +1,44 @@
+import { Component } from '@angular/core';
+import { NavParams, NavController, AlertController, Alert } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+@Component({
+    selector: 'page-querocarona',
+    templateUrl: 'querocarona.html'
+})
+
+export class QueroCaronaPage {
+
+public listCaronasRef;
+public listCaronas;
+public partida;
+public dadosCarona
+private alerta: Alert
+
+    constructor(
+    public navParams: NavParams,
+    public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    public af: AngularFireDatabase,
+    private auth: AngularFireAuth) {
+        this.partida = this.navParams.get('partidaEscolhida')
+        this.listCaronasRef = af.object('caronas')
+        this.listCaronas = this.listCaronasRef.valueChanges()
+
+        this.alerta = this.alertCtrl.create({
+            buttons: [{text: 'OK', handler: () => {
+            this.navCtrl.setRoot(HomePage)
+          }}]
+        })
+    }
+
+  ngOnInit() {
+      this.getDadosCarona()
+  }
+
+    getDadosCarona() {
+        console.log(this.listCaronas)
+    }
+}
