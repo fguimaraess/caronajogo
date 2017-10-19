@@ -56,11 +56,12 @@ constructor(
 
     for(var i = 0; i < dados.length; i++){
       var dataInicioRodadaRaw = dados[i].inicio.split(' ')[0].split('-')
-      var dataInicioRodada = new Date(dataInicioRodadaRaw[0], (dataInicioRodadaRaw[1] - 1), dataInicioRodadaRaw[2]) 
+      var horaInicioRodadaRaw = dados[i].inicio.split(' ')[1].split(':')
+      var dataInicioRodada = new Date(dataInicioRodadaRaw[0], (dataInicioRodadaRaw[1] - 1), dataInicioRodadaRaw[2], horaInicioRodadaRaw[0], horaInicioRodadaRaw[1], horaInicioRodadaRaw[2]) 
 
       var dataFimRodadaRaw = dados[i].fim.split(' ')[0].split('-')
-      var dataFimRodada = new Date(dataFimRodadaRaw[0], (dataFimRodadaRaw[1] - 1), dataFimRodadaRaw[2]) 
-
+      var horaFimRodadaRaw = dados[i].fim.split(' ')[1].split(':')
+      var dataFimRodada = new Date(dataFimRodadaRaw[0], (dataFimRodadaRaw[1] - 1), dataFimRodadaRaw[2], horaFimRodadaRaw[0], horaFimRodadaRaw[1], horaFimRodadaRaw[2]) 
       if(dataAtual <= dataFimRodada && dataAtual >= dataInicioRodada){
         return new Promise((resolve, reject) => {
           resolve(dados[i].rodada_id)

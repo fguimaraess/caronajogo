@@ -8,3 +8,31 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+      <ion-item-divider text-center color="light">
+        <ion-icon ios="ios-car" md="md-car"></ion-icon><br/>
+      </ion-item-divider>
+      <br/>
+  <ion-list *ngFor="let carona of caronasUsuario">
+    <ion-card>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-12>
+            E-mail: {{carona.email}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            Local: {{carona.local}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            Partida: {{carona.partida}}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

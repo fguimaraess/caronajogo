@@ -11,10 +11,11 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 export class QueroCaronaPage {
 
-public listCaronasRef;
-public listCaronas;
+private listCaronasRef;
+private listCaronas;
 public partida;
-public dadosCarona
+public dadosCarona = [];
+public usuarioLogado;
 private alerta: Alert
 
     constructor(
@@ -35,10 +36,33 @@ private alerta: Alert
     }
 
   ngOnInit() {
-      this.getDadosCarona()
+    this.verificaUsuario();
+    this.getDadosCarona()
   }
 
+  verificaUsuario(){
+      this.auth.auth.onAuthStateChanged(user => {
+        this.usuarioLogado = user.email;
+      })
+    }
+
     getDadosCarona() {
-        console.log(this.listCaronas)
+        this.listCaronas.subscribe(caronas => {
+            var tempCaronas = []
+            for(var key in caronas) {
+                if(caronas[key].idPartida == this.partida.idPartida){
+                    tempCaronas.push({
+                        idPartida: caronas[key].idPartida,
+                        emailCriadorCarona: caronas[key].email,
+                        emailUsuarioCarona: this.usuarioLogado,
+                        hora: caronas[key].hora,
+                        local: caronas[key].local,
+                        placa: caronas[key].placa,
+                        vagas: caronas[key].vagas
+                    }) 
+                }
+            }
+            this.dadosCarona = tempCaronas
+        })
     }
 }

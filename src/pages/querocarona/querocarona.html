@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Buscar Carona
+      Caronas
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,4 +16,31 @@
     <ion-item text-center><img src='{{partida.mandante.escudos["45x45"]}}'> X <img src='{{partida.visitante.escudos["45x45"]}}'></ion-item>
     <br/>
 
+    <ion-list *ngFor="let carona of dadosCarona">
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-12>
+              Data: {{partida.data}}
+            </ion-col>
+          </ion-row>
+          
+        <ion-row>
+            <ion-col col-12>
+          Hora de saída: {{carona.hora}}
+          </ion-col>
+          </ion-row>
+        <ion-row>
+            <ion-col col-12>
+          Local: {{carona.local}}
+          </ion-col>
+          </ion-row>
+        <ion-row>
+            <ion-col col-12>
+          Vagas: {{carona.vagas}}
+          </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
 </ion-content>
