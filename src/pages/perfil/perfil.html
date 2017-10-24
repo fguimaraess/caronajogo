@@ -13,8 +13,9 @@
     
     <button (click)="openCamera()" ion-button color="light">Light</button>
     <ion-item>
-        <ion-label stacked>Foto</ion-label>
-        <ion-input type="url" [(ngModel)]="dadosUsuario.foto"></ion-input>
+        <img src={{dadosUsuario.foto}} height="600" width="600">
+        <!-- <ion-label stacked>Foto</ion-label> -->
+        <!-- <ion-input type="url" [(ngModel)]="dadosUsuario.foto"></ion-input> -->
     </ion-item>
     <ion-item>
         <ion-label stacked>Nome</ion-label>

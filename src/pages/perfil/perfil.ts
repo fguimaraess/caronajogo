@@ -80,7 +80,9 @@ export class PerfilPage {
         if (this.usuarioLogado == usuarios[key].email) {
           this.dadosUsuario.email = usuarios[key].email,
             this.dadosUsuario.password = usuarios[key].password,
-            this.dadosUsuario.uid = key
+            this.dadosUsuario.uid = key,
+            this.dadosUsuario.nome = usuarios[key].nome, 
+            this.dadosUsuario.foto = usuarios[key].foto
         }
       }
     })
