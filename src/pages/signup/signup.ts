@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'page-signup',
@@ -12,13 +13,21 @@ export class SignupPage {
     password: '',
     passwordRetyped: ''
   };
+  public listUsuarios
+  public novoUsuario = {
+    email: '',
+    password: '',
+    uid: ''
+  }
 
   constructor(
     private navCtrl: NavController,
     private navParams: NavParams,
     private alertCtrl: AlertController,
+    public af: AngularFireDatabase,
     private afAuth: AngularFireAuth) {
             this.signupData.email = this.navParams.get('email');
+            this.listUsuarios = af.list('/usuarios')
   }
   
   signup() {
@@ -35,6 +44,7 @@ export class SignupPage {
     //Firebase signup code
     this.afAuth.auth.createUserWithEmailAndPassword(this.signupData.email, this.signupData.password)
     .then(auth => {
+      this.criaUsuario()
       // Could do something with the Auth-Response
       console.log(auth);
     })
@@ -46,6 +56,14 @@ export class SignupPage {
       });
       alert.present();
     });
+  }
+  
+  criaUsuario(){
+    this.novoUsuario.email = this.signupData.email
+    this.novoUsuario.password = this.signupData.password
+    this.listUsuarios.push(this.novoUsuario).then(usuario => {
+      console.log(usuario)
+    })
   }
 
 }

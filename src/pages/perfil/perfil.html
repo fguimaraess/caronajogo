@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Editar Perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Foto</ion-label>
+        <ion-input type="url" [(ngModel)]="dadosUsuario.foto"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosUsuario.nome">{{dadosUsuario.nome}}</ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input type="text" disabled="true" [(ngModel)]="dadosUsuario.email">{{dadosUsuario.email}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input #input type="{{type}}" disabled="true" [(ngModel)]="dadosUsuario.password">
+            {{dadosUsuario.password}}
+        </ion-input>
+        <ion-icon name="eye" *ngIf="!showPass" (click)="showPassword()" item-right></ion-icon>
+        <ion-icon name="ios-eye-outline" *ngIf="showPass" (click)="showPassword()" item-right></ion-icon>
+  </ion-item>
+
+    <button (click)="editarPerfil()" ion-button block style="background-color: darkgreen;">Confirmar</button>
+</ion-content>

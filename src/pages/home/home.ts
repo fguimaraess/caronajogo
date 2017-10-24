@@ -11,6 +11,7 @@ import { EscolhaPage } from '../escolha/escolha';
 
 export class HomePage {
 public partidasDaRodada;
+public todasPartidas;
 
 constructor(
   public navCtrl: NavController,
@@ -28,7 +29,6 @@ constructor(
     var options = new RequestOptions({ headers: myHeaders });
 
     return new Promise((resolve, reject) => {
-    
       this.http.get(url, options)
         .subscribe((result: any) => {
           resolve(result.json());
@@ -46,7 +46,10 @@ constructor(
 
   getPartidas(rodada){
     let url = 'https://cors-anywhere.herokuapp.com/https://api.cartolafc.globo.com/partidas/' + rodada
-    return this.httpGet(url)
+    return this.httpGet(url).catch( () => {
+      url = 'https://cors-anywhere.herokuapp.com/https://api.cartolafc.globo.com/partidas/' + (rodada - 1)
+      return this.httpGet(url)
+    })
   }
 
 
@@ -92,12 +95,13 @@ constructor(
     this.getRodada().then(this.getRodadaAtual).then((idRodada) => {
       this.getPartidas(idRodada).then((partidas) => {
         var tmpPartidas = []
-        for(var partida in partidas.partidas){
-          var currentPartida = partidas.partidas[partida]
+        this.todasPartidas = partidas
+        for(var partida in this.todasPartidas.partidas){
+          var currentPartida = this.todasPartidas.partidas[partida]
           tmpPartidas.push({
             idPartida: currentPartida.partida_id,
-            mandante: partidas.clubes[currentPartida.clube_casa_id],
-            visitante: partidas.clubes[currentPartida.clube_visitante_id],
+            mandante: this.todasPartidas.clubes[currentPartida.clube_casa_id],
+            visitante: this.todasPartidas.clubes[currentPartida.clube_visitante_id],
             data: currentPartida.partida_data,
             local: currentPartida.local
           })

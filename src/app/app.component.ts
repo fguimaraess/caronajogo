@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { CaronasCriadasPage } from '../pages/caronascriadas/caronascriadas';
 import { CaronasRecebidasPage } from '../pages/caronasrecebidas/caronasrecebidas';
+import { PerfilPage } from '../pages/perfil/perfil';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +20,8 @@ export class MyApp {
   public pages = [
     { title: 'Home', component: HomePage  },
     { title: 'Caronas recebidas', component: CaronasRecebidasPage },
-    { title: 'Caronas criadas', component: CaronasCriadasPage }
+    { title: 'Caronas criadas', component: CaronasCriadasPage },
+    { title: 'Editar Perfil', component: PerfilPage }
   ]
 
   @ViewChild(Nav) public nav: Nav

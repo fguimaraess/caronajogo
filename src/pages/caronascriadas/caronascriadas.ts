@@ -24,13 +24,6 @@ constructor(
         this.verificaUsuario()
         this.listCaronasRef = af.object('caronas')
         this.listCaronasUsuario = this.listCaronasRef.valueChanges()
-    //     this.alertCtrl.create({
-    //     title: 'Troxa',
-    //     buttons: [{text: 'OK', handler: () => {
-    //         this.navCtrl.setRoot(HomePage)
-    //     }}],
-    //     subTitle: 'Calma aí que a gente tá desenvolvendo.'
-    //   }).present()
     }
     verificaUsuario(){
       this.auth.auth.onAuthStateChanged(user => {
