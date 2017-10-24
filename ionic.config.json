@@ -1,6 +1,8 @@
 {
   "name": "caronajogo",
   "app_id": "b965d6b7",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

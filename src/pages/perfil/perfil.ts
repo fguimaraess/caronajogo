@@ -15,6 +15,7 @@ import {
 import {
   AngularFireDatabase
 } from 'angularfire2/database';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-perfil',
@@ -40,18 +41,37 @@ export class PerfilPage {
     public navCtrl: NavController,
     public alertCtrl: AlertController,
     private auth: AngularFireAuth,
-    private af: AngularFireDatabase) {
+    private af: AngularFireDatabase,
+    private camera: Camera) {
     this.listUsuariosRef = af.object('usuarios')
     this.listUsuarios = this.listUsuariosRef.valueChanges()
     this.verificaUsuario()
     this.getUsuario()
   }
+
+  
   verificaUsuario() {
     this.auth.auth.onAuthStateChanged(user => {
       this.usuarioLogado = user.email;
     })
   }
 
+  openCamera() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+     }, (err) => {
+      // Handle error
+     });
+  }
   getUsuario() {
     this.listUsuarios.subscribe(usuarios => {
       for (var key in usuarios) {

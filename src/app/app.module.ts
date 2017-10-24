@@ -8,7 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpModule } from '@angular/http';
-
+import { Camera } from '@ionic-native/camera';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -66,7 +66,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StatusBar,
     SplashScreen,
-    AngularFireDatabase
+    AngularFireDatabase,
+    Camera
     ]
 })
 export class AppModule {}
