@@ -25,6 +25,7 @@
     "@ionic-native/status-bar": "4.3.0",
     "@ionic/storage": "2.0.1",
     "angularfire2": "^5.0.0-rc.2",
+    "cordova-plugin-ionic": "^2.0.1",
     "firebase": "^4.5.0",
     "ionic-angular": "3.7.1",
     "ionicons": "3.0.0",
@@ -48,5 +49,14 @@
     }
   ],
   "cordovaPlatforms": [],
-  "description": "caronajogo: An Ionic project"
+  "description": "caronajogo: An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-ionic": {
+        "APP_ID": "b965d6b7",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
+      }
+    }
+  }
 }
