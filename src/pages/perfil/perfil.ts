@@ -57,6 +57,7 @@ export class PerfilPage {
   }
 
   openCamera() {
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -68,6 +69,7 @@ export class PerfilPage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.dadosUsuario.foto = base64Image;
      }, (err) => {
       // Handle error
      });
@@ -81,12 +83,14 @@ export class PerfilPage {
             this.dadosUsuario.uid = key
         }
       }
-      console.log(this.dadosUsuario)
     })
   }
 
   editarPerfil() {
-    console.log(this.dadosUsuario)
+    var dadosUpdate = this.dadosUsuario
+    var uidTmp = this.dadosUsuario.uid
+    delete dadosUpdate.uid
+    this.af.object('usuarios/' + uidTmp).update(dadosUpdate).then(_ => console.log('update!'));
   }
 
   showPassword() {
