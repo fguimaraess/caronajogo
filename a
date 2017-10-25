@@ -1,0 +1,104 @@
+[33mcommit 53a72818f856a4da8a691831134f18ea40cddd14[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Tue Oct 24 10:34:19 2017 -0200
+
+    Add tela de editar perfil
+
+[33mcommit 88e2c1d73e925d08bf2648a2d24196d166e131f2[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Thu Oct 19 10:23:07 2017 -0200
+
+    Add caronas criadas e visualiza caronas pra cada jogo
+
+[33mcommit 4cbb02e5b81748c43b3054d45968f57ecae656d8[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Wed Oct 18 17:58:00 2017 -0200
+
+    Inicio do getCaronasPorJogo
+
+[33mcommit c4fe744192f221049972627edc1c056832f8e417[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Wed Oct 18 17:28:48 2017 -0200
+
+    Add menu
+
+[33mcommit e9e65a53950ae88c0ab6dc25fe5d0eff4743ef8a[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Tue Oct 17 22:33:37 2017 -0200
+
+    Cadastra carona
+
+[33mcommit 0d0ccecbe166c2f4f34701766e6d1798abdf87ba[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Tue Oct 17 13:43:36 2017 -0200
+
+    Add tela de nova carona
+
+[33mcommit 4cb192103b5ebabcdcd92806cdfc185589a8cd26[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Tue Oct 17 10:12:33 2017 -0200
+
+    Catch para trazer a rodada anterior
+
+[33mcommit 126c02e1b7aa7f38905bce687398cffaca5e1698[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Mon Oct 16 11:58:22 2017 -0200
+
+    Add CORSAnywhere no get da api
+
+[33mcommit 2f84a1e1e24948898964a2812e756b841b677d33[m
+Author: Felipe Lima Guimarães (TI/Varejo) <fguimaraes@granadophebo.com.br>
+Date:   Mon Oct 16 11:46:59 2017 -0200
+
+    Add CORSAnywhere no get da api
+
+[33mcommit efc33ecbd99c5dcb18aab667d33dc12e576dd956[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sun Oct 8 22:19:00 2017 -0300
+
+    ajustes cors
+
+[33mcommit 1a6b31bd948b06dc30503499fc464ff4e9102f0b[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sun Oct 8 20:03:17 2017 -0300
+
+    escolhe partida
+
+[33mcommit 270398622cd789e70bc8f3b855dc5d3cece9bf6f[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sun Oct 8 13:36:21 2017 -0300
+
+    add icon
+
+[33mcommit e0b216ff120a23e5b07803d918c8a01b9c6fff75[m
+Merge: abc0364 50af3b7
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sun Oct 8 13:13:58 2017 -0300
+
+    Merge pull request #1 from luizcunha3/master
+    
+    Alteracoes
+
+[33mcommit 50af3b71061950f9e33dfece76fe33f201f18c1c[m
+Author: Luiz Carlos <luizcunha3@gmail.com>
+Date:   Sun Oct 8 13:04:24 2017 -0300
+
+    Alteracoes
+
+[33mcommit abc03646755d6db96ddb8645ce55170d380473b4[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sat Oct 7 14:36:13 2017 -0300
+
+    login/signup page ok
+
+[33mcommit a82507bbfd394fca5be23408775910660c28501e[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sat Oct 7 14:19:15 2017 -0300
+
+    initial commit
+
+[33mcommit 4ddcf482dff3e4739588ee025cdae2f008bcb8cc[m
+Author: Felipe Guimarães <felipeemg@gmail.com>
+Date:   Sat Oct 7 14:17:27 2017 -0300
+
+    first commit

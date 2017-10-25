@@ -46,12 +46,27 @@ constructor(
                     tmpCaronas.push({
                         email: caronas[key].email,
                         local: caronas[key].local,
-                        partida: caronas[key].abrevPartida
+                        partida: caronas[key].abrevPartida,
+                        uid: key
                     })
                 }
             }
             console.log(tmpCaronas)
             this.caronasUsuario = tmpCaronas
         })
+    }
+
+    excluirCarona(carona) {
+        let alert = this.alertCtrl.create({
+            title: 'Excluir',
+            message: 'Deseja excluir a carona?',
+            buttons: [
+                { text: 'Sim', handler: () => {
+                   this.af.object('caronas/' + carona.uid).remove().then(_ => console.log('Excluiu!'));     
+                }},
+                { text: 'Não' }
+            ]
+        })
+        alert.present()
     }
 }
