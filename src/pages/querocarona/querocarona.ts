@@ -65,4 +65,8 @@ private alerta: Alert
             this.dadosCarona = tempCaronas
         })
     }
+
+    pedirCarona(carona) {
+        console.log(carona)
+    }
 }
