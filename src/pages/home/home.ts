@@ -87,37 +87,37 @@ constructor(
   }
 
   ngOnInit() {
-    // let loader = this.loadingCtrl.create({
-    //   content: 'Carregando...'
-    // })
-    // loader.present() //Loader aparece até carregar a lista
+    let loader = this.loadingCtrl.create({
+      content: 'Carregando...'
+    })
+    loader.present() //Loader aparece até carregar a lista
 
-    // this.getRodada().then(this.getRodadaAtual).then((idRodada) => {
-    //   this.getPartidas(idRodada).then((partidas) => {
-    //     var tmpPartidas = []
-    //     this.todasPartidas = partidas
-    //     for(var partida in this.todasPartidas.partidas){
-    //       var currentPartida = this.todasPartidas.partidas[partida]
-    //       tmpPartidas.push({
-    //         idPartida: currentPartida.partida_id,
-    //         mandante: this.todasPartidas.clubes[currentPartida.clube_casa_id],
-    //         visitante: this.todasPartidas.clubes[currentPartida.clube_visitante_id],
-    //         data: currentPartida.partida_data,
-    //         local: currentPartida.local
-    //       })
-    //     }
-    //     console.log(tmpPartidas)
-    //     this.partidasDaRodada = tmpPartidas
-    //     loader.dismiss() //Mata o loader
-    //   })
-    // }).catch(err => {
-    //   loader.dismiss()
-    //   this.alertCtrl.create({
-    //     title: 'Falha na conexão',
-    //     buttons: [{text: 'OK'}],
-    //     subTitle: 'Não foi possível obter as partidas. Tente novamente.'
-    //   }).present()
-    // })
+    this.getRodada().then(this.getRodadaAtual).then((idRodada) => {
+      this.getPartidas(idRodada).then((partidas) => {
+        var tmpPartidas = []
+        this.todasPartidas = partidas
+        for(var partida in this.todasPartidas.partidas){
+          var currentPartida = this.todasPartidas.partidas[partida]
+          tmpPartidas.push({
+            idPartida: currentPartida.partida_id,
+            mandante: this.todasPartidas.clubes[currentPartida.clube_casa_id],
+            visitante: this.todasPartidas.clubes[currentPartida.clube_visitante_id],
+            data: currentPartida.partida_data,
+            local: currentPartida.local
+          })
+        }
+        console.log(tmpPartidas)
+        this.partidasDaRodada = tmpPartidas
+        loader.dismiss() //Mata o loader
+      })
+    }).catch(err => {
+      loader.dismiss()
+      this.alertCtrl.create({
+        title: 'Falha na conexão',
+        buttons: [{text: 'OK'}],
+        subTitle: 'Não foi possível obter as partidas. Tente novamente.'
+      }).present()
+    })
    }
 
    selectPartida(partida) {

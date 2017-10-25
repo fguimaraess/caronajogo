@@ -46,7 +46,7 @@ constructor(
                     tmpCaronas.push({
                         email: caronas[key].email,
                         local: caronas[key].local,
-                        partida: caronas[key].idPartida
+                        partida: caronas[key].abrevPartida
                     })
                 }
             }

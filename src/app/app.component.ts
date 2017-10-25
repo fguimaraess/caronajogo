@@ -15,7 +15,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 })
 
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
 
   public pages = [
     { title: 'Home', component: HomePage  },

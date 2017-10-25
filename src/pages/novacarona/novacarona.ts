@@ -19,6 +19,7 @@ private alerta: Alert
 
 public dadosCarona = {
     idPartida: '',
+    abrevPartida: '',
     email: '',
     hora: '',
     local: '',
@@ -53,6 +54,7 @@ constructor(
     confirmaNovaCarona(){
         this.dadosCarona.idPartida = this.partida.idPartida;
         this.dadosCarona.email = this.usuarioLogado;
+        this.dadosCarona.abrevPartida = this.partida.mandante.abreviacao + 'x' + this.partida.visitante.abreviacao
         this.listCaronas.push(this.dadosCarona).then(dadosCarona => {
             console.log(this.dadosCarona)
             this.alerta.setTitle('Carona cadastrada');
