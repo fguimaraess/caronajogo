@@ -3,6 +3,9 @@
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true
+    ],
+    "no-console": [
+      "error"
     ]
   },
   "rulesDirectory": [

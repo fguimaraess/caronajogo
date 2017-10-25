@@ -35,7 +35,7 @@ export class PerfilPage {
     uid: '',
     foto: ''
   }
-
+  
   constructor(
     public navParams: NavParams,
     public navCtrl: NavController,

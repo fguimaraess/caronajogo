@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.0",
+    "husky": "^0.14.3",
     "typescript": "2.3.4"
   },
   "cordovaPlugins": [
