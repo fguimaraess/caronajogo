@@ -85,6 +85,7 @@ export class PerfilPage {
             this.dadosUsuario.foto = usuarios[key].foto
         }
       }
+      console.log(this.dadosUsuario.nome)
     })
   }
 
