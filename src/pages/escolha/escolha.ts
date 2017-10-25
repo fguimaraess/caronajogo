@@ -15,7 +15,7 @@ constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController) {
         this.partida = this.navParams.get('partidaEscolhida')
-        console.log(this.partida)
+        
     }
 
     novaCarona(partida) {

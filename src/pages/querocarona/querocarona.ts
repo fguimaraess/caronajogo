@@ -67,6 +67,6 @@ private alerta: Alert
     }
 
     pedirCarona(carona) {
-        console.log(carona)
+
     }
 }

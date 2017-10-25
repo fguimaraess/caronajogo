@@ -36,7 +36,7 @@ constructor(
         this.verificaUsuario()
         this.partida = this.navParams.get('partidaEscolhida')
         this.listCaronas = af.list('/caronas')
-        console.log(this.partida)
+        
 
         this.alerta = this.alertCtrl.create({
             buttons: [{text: 'OK', handler: () => {
@@ -56,7 +56,7 @@ constructor(
         this.dadosCarona.email = this.usuarioLogado;
         this.dadosCarona.abrevPartida = this.partida.mandante.abreviacao + 'x' + this.partida.visitante.abreviacao
         this.listCaronas.push(this.dadosCarona).then(dadosCarona => {
-            console.log(this.dadosCarona)
+            
             this.alerta.setTitle('Carona cadastrada');
             this.alerta.setSubTitle('Você criou carona para o jogo ' + this.partida.mandante.abreviacao + 'x' + this.partida.visitante.abreviacao);
             this.alerta.present();    

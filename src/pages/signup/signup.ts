@@ -45,8 +45,7 @@ export class SignupPage {
     this.afAuth.auth.createUserWithEmailAndPassword(this.signupData.email, this.signupData.password)
     .then(auth => {
       this.criaUsuario()
-      // Could do something with the Auth-Response
-      console.log(auth);
+      
     })
     .catch(err => {
       let alert = this.alertCtrl.create({
@@ -61,9 +60,7 @@ export class SignupPage {
   criaUsuario(){
     this.novoUsuario.email = this.signupData.email
     this.novoUsuario.password = this.signupData.password
-    this.listUsuarios.push(this.novoUsuario).then(usuario => {
-      console.log(usuario)
-    })
+    this.listUsuarios.push(this.novoUsuario)
   }
 
 }

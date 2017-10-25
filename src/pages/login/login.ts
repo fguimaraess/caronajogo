@@ -20,7 +20,7 @@ export class LoginPage {
   login() {
     this.afAuth.auth.signInWithEmailAndPassword(this.loginData.email, this.loginData.password)
       .then(auth => {
-        this.navCtrl.push(HomePage, {emailUsuario: this.loginData.email});
+        
       })
       .catch(err => {
         let toast = this.toastCtrl.create({

@@ -17,6 +17,8 @@ import {
 } from 'angularfire2/database';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+import { ToastController } from 'ionic-angular';
+
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html'
@@ -42,7 +44,8 @@ export class PerfilPage {
     public alertCtrl: AlertController,
     private auth: AngularFireAuth,
     private af: AngularFireDatabase,
-    private camera: Camera) {
+    private camera: Camera,
+    public toastCtrl: ToastController) {
     this.listUsuariosRef = af.object('usuarios')
     this.listUsuarios = this.listUsuariosRef.valueChanges()
     this.verificaUsuario()
@@ -54,6 +57,16 @@ export class PerfilPage {
     this.auth.auth.onAuthStateChanged(user => {
       this.usuarioLogado = user.email;
     })
+  }
+
+  showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 4000,
+      position: 'bottom'
+    });
+
+    toast.present(toast);
   }
 
   openCamera() {
@@ -85,7 +98,7 @@ export class PerfilPage {
             this.dadosUsuario.foto = usuarios[key].foto
         }
       }
-      console.log(this.dadosUsuario.nome)
+      
     })
   }
 
@@ -93,7 +106,9 @@ export class PerfilPage {
     var dadosUpdate = this.dadosUsuario
     var uidTmp = this.dadosUsuario.uid
     delete dadosUpdate.uid
-    this.af.object('usuarios/' + uidTmp).update(dadosUpdate).then(_ => console.log('update!'));
+    this.af.object('usuarios/' + uidTmp).update(dadosUpdate)
+    this.showToast('Usuario alterado com sucesso!');
+    this.navCtrl.push(HomePage);
   }
 
   showPassword() {
