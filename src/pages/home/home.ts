@@ -106,7 +106,7 @@ constructor(
             local: currentPartida.local
           })
         }
-        console.log(tmpPartidas)
+        
         this.partidasDaRodada = tmpPartidas
         loader.dismiss() //Mata o loader
       })

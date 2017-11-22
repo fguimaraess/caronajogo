@@ -36,12 +36,12 @@ constructor(
     }
 
     getCaronasUsuario(){
-        console.log(this.listCaronasUsuario)
+        
         this.listCaronasUsuario.subscribe(caronas => {
             var tmpCaronas = []
-            console.log(caronas)
+            
             for(var key in caronas) {
-                console.log(caronas[key])
+                
                 if(caronas[key].email == this.usuarioLogado) {
                     tmpCaronas.push({
                         email: caronas[key].email,
@@ -51,7 +51,7 @@ constructor(
                     })
                 }
             }
-            console.log(tmpCaronas)
+            
             this.caronasUsuario = tmpCaronas
         })
     }
@@ -62,7 +62,7 @@ constructor(
             message: 'Deseja excluir a carona?',
             buttons: [
                 { text: 'Sim', handler: () => {
-                   this.af.object('caronas/' + carona.uid).remove().then(_ => console.log('Excluiu!'));     
+                   this.af.object('caronas/' + carona.uid).remove();     
                 }},
                 { text: 'Não' }
             ]
