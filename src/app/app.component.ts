@@ -40,7 +40,16 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-    });
+
+      let funcaoRetorno = (data) => {
+         console.log('Notificações: ' + JSON.stringify(data));
+      };
+
+      window["plugins"].OneSignal.startInit("3c813eaf-5614-4104-942d-8d91a0d75a0e",
+          "301519583196")
+          .handleNotificationOpened(funcaoRetorno)
+          .endInit();
+      });
   }
 
   openPage(page) {

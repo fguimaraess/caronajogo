@@ -90,4 +90,5 @@
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.2.2" />
 </widget>
